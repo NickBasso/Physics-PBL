@@ -1,0 +1,41 @@
+The goal is to calculate the charge(q) at different moments of time and, if possible, build a graph representing its values over time
+
+Values to be entered by the user:
+
+L - inductance (Henry - H)
+C - electric capacity (Farads - F)
+V - voltage (Volt - V)
+
+evaluate t while q != 0 (time range to be considered)
+
+!For electromagnetic oscillations:
+
+q = a * e^(-lambda * t) * sin(t / (sqrt(L * C) + B) -> solution for electromagnetic oscillations in amplitude form
+
+lambda - fading decrement (quotient);
+B - angle (radians)
+
+TODO: Create user input for electromagnetic inductance(L), electric capacity(C), voltage(V), time interval to be considered (t aka from t = 0 to t)
+TODO: Build a graph representing values of charge(q) over time(t)
+TODO: Calculate and output the charge(q) at different moments of time
+TODO: Add different units of measurement available for the user to enter values in.
+
+SpeedOfLight = 299792458;  // m/s
+pi = 3.1415926535897932384626433832795;
+epsTime = 0.000000000000000000000001; // 10^-25
+e = 2.7182818284590452353602874713527;
+q0 = C*V -> starting charge
+a = Vc * 2 * pi * sqrt(L*C)  -> amplitude is a constant calculated in the beginning
+lambda = -ln(q0/(a*sin(t/(sqrt(L*C)) / t
+q(t) = a * e^(-lambda * t) * sin(t / (sqrt(L * C) + B) -> solution for electromagnetic oscillations in amplitude form
+
+!lambda = (R^2)/(4*L^2)
+
+SpeedOfLight = 299792458;  // m/s
+pi = 3.1415926535897932384626433832795;
+epsTime = 0.000000000000000000000001; // 10^-25
+e = 2.7182818284590452353602874713527;
+q0 = C*V -> starting charge
+a = Vc * 2 * pi * sqrt(L*C)  -> amplitude is a constant calculated in the beginning
+lambda = (R^2)/(4*L^2)
+q(t) = a * e^(-lambda * t) * sin(t / (sqrt(L * C) + B) -> solution for electromagnetic oscillations in amplitude form

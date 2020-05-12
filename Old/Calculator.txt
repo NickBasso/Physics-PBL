@@ -1,0 +1,98 @@
+/*public double V;                            // starting Voltage
+    public double C;                            // capacity
+    public double L;                            // inductance
+    public double R1;                           // auxiliary resistance
+
+    public double Vc;                           // current Voltage
+    public double amplitude0;                   // starting amplitude
+    public double amplitude;                    // current amplitude
+    public double omega0;                       // starting frequency
+    public double omega;                        // current frequency
+    public double attenuationCoefficient;       // attenuation Coefficient
+    public double R;                            // total Resistance
+    public double Rcrit;                        // critical (maximal) Resistance
+    public double q0;                           // starting charge
+    public double q;                            // current charge
+    public double T;                            // oscillation period
+    public double degRad;                       // ((omega*currentTime+startingPhase)*180)/pi
+    public double startingPhase;                // starting Phase
+    public double time;                         // time range
+    public double timeDelta = 0.01;             // time step for each calculation
+
+
+
+
+    public static double SpeedOfLight = 299792458;                  // speed of light
+    public static double pi = 3.1415926535897932384626433832795;    // pi
+    public static double epsTime = 0.000000000000000000000001;      // error tolerance for time
+    public static double e = 2.7182818284590452353602874713527;     // Euler's number
+
+    public String[] variables = new String[]{"№", "t", "q", "∡ (rad)", "A", "ω", "R", "λ\u200E", "V", "L", "C"};
+    public String[][] data;
+    public int iterations;
+
+    public Calculator(double V, double C, double L, double R, double time, double timeDelta, double startingPhase){
+        this.V = V;
+        this.C = C;
+        this.L = L;
+        this.R1 = R;
+        this.time = time;
+        this.timeDelta = timeDelta;
+        this.startingPhase = startingPhase;
+
+        // initialize data table to be represented after the calculations
+        data = new String[100100][variables.length];
+        int i = 0;
+
+        for(String s: variables)
+            data[0][i++] = s;
+    }
+
+    public void calculateConstants(){
+        omega0 = Math.pow(L*C, -0.5);
+        R = omega0 * L + Math.pow(omega0 * SpeedOfLight, -1) + R1; //R = omega0 * L + (omega0 * c)^(-1) + R1;
+        attenuationCoefficient = R/(2*L);
+        //old: omega = Math.pow(L*C, -0.5);
+        omega = sqrt(Math.pow(omega0, 2)-Math.pow(attenuationCoefficient,2));  // Math.pow(L*C, -1)
+
+        Rcrit = 2 * sqrt(L / C);
+        T = 2*pi/omega;
+        amplitude0 = SpeedOfLight*T;    // new
+        q0 = C*V;
+        //amplitude = SpeedOfLight * 2 * pi * sqrt(L*C);
+    }
+
+    public void calculateCharge(){
+        System.out.println("------------------------Calculations:------------------------");
+        double currentTime = 0;
+        int step = 0;
+
+        while(currentTime + epsTime < time) {
+            degRad = ((omega*currentTime+startingPhase)*180)/pi;
+            amplitude = amplitude0*Math.pow(e, -attenuationCoefficient*currentTime);
+            q = amplitude*cos(degRad);
+            Vc = V*Math.pow(e, -attenuationCoefficient*currentTime)*cos(degRad);
+
+            System.out.println("Charge q = " + q + "  attenuationCoefficient = " + attenuationCoefficient + " amplitude = " + amplitude + " degreeRadian = " + degRad + " time = " + currentTime);
+
+
+            step++;
+
+            data[step][0] = String.valueOf(step);
+            data[step][1] = String.valueOf(currentTime);
+            data[step][2] = String.valueOf(q);
+            data[step][3] = String.valueOf(degRad);
+            data[step][4] = String.valueOf(amplitude);
+            data[step][5] = String.valueOf(omega);
+            data[step][6] = String.valueOf(R);
+            data[step][7] = String.valueOf(attenuationCoefficient);
+            data[step][8] = String.valueOf(Vc);
+            data[step][9] = String.valueOf(L);
+            data[step][10] = String.valueOf(C);
+
+            currentTime += timeDelta;
+        }
+        System.out.println("\n\n\n" + sin(1));
+
+        iterations = step;
+    }*/
