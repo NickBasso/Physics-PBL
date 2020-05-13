@@ -257,7 +257,7 @@ public class Controller implements Initializable {
     public double convertTimeRangeToSI(){
         double x = Double.valueOf(TimeRangeTextField.getText());
 
-        if(TimeRangeTextField.getText().equals("milliseconds")){
+        if(TimeRangeMenuButton.getText().equals("milliseconds")){
             return x/tenTo3;
         }
 

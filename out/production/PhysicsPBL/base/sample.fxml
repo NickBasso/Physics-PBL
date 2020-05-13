@@ -91,7 +91,7 @@
             <Font name="System Bold" size="12.0" />
          </font></Label>
 
-      <Button fx:id="ShowChartButton" layoutX="122.0" layoutY="373.0" mnemonicParsing="false" onAction="#handleShowChartButtonOnAction" prefHeight="25.0" prefWidth="130.0" text="Show graph">
+      <Button fx:id="ShowChartButton" layoutX="122.0" layoutY="373.0" mnemonicParsing="false" onAction="#handleShowChartButtonOnAction" prefHeight="25.0" prefWidth="130.0" text="Show chart">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
@@ -124,27 +124,27 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Label fx:id="InitialVoltageTextLabel" layoutX="912.0" layoutY="85.0" text="Initial Voltage: ">
+      <Label fx:id="InitialVoltageTextLabel" layoutX="910.0" layoutY="85.0" text="Initial Voltage: ">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="CapacityTextLabel" layoutX="912.0" layoutY="115.0" text="Capacity: ">
+      <Label fx:id="CapacityTextLabel" layoutX="910.0" layoutY="145.0" text="Capacity: ">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="InductanceTextLabel" layoutX="912.0" layoutY="145.0" text="Inductance: ">
+      <Label fx:id="InductanceTextLabel" layoutX="910.0" layoutY="175.0" text="Inductance: ">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="ResistorResistanceTextLabel" layoutX="912.0" layoutY="175.0" text="Circuit resistance: ">
+      <Label fx:id="ResistorResistanceTextLabel" layoutX="910.0" layoutY="205.0" text="Circuit resistance: ">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="TotalResistanceTextLabel" layoutX="912.0" layoutY="205.0" text="Total Resistance: ">
+      <Label fx:id="TotalResistanceTextLabel" layoutX="910.0" layoutY="115.0" text="Total Resistance: ">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="OscillationPeriodTextLabel" layoutX="912.0" layoutY="235.0" text="T: ">
+      <Label fx:id="OscillationPeriodTextLabel" layoutX="910.0" layoutY="235.0" text="T: ">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
@@ -152,7 +152,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="AttenuationCoefficientTextLabel" layoutX="912.0" layoutY="295.0" text="λ: ">
+      <Label fx:id="AttenuationCoefficientTextLabel" layoutX="910.0" layoutY="295.0" text="λ: ">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
