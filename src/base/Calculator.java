@@ -20,7 +20,7 @@ public class Calculator {
     public double q0;       // starting charge
     public double q;        // current charge
     public double T;        // oscillation period
-    public double d;        // ((omega * currentTime + startingPhase) * 180) / pi
+    public double d;        // logarithmic decrement quotient
     public double B;        // starting Phase
     public double tR;       // time range
     public double tD;       // time step for each calculation
@@ -49,8 +49,6 @@ public class Calculator {
         this.tD = timeDelta;
         this.B = B;
 
-
-        System.out.println(variables.length);
         // initialize data table to be represented after the calculations
         data = new String[100100][variables.length];
         int i = 0;
@@ -84,7 +82,7 @@ public class Calculator {
         while (ct + eps < tR) {
             d = ((W * ct + B) * 180) / pi;
             a = a0 * Math.pow(e, -k * ct);
-            q = a * cos(d);
+            q = q0 * cos(d) * Math.pow(e, -k * ct);
             Vc = Vs * Math.pow(e, -k * ct) * cos(d);
 
             i++;
@@ -105,7 +103,7 @@ public class Calculator {
         iterations = i;
     }
 
-                             // ---> getters for constant variable output <---
+    // ---> getters for constant variable output <---
 
     public double getTotalResistance(){
         return R;
