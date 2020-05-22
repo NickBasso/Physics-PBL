@@ -24,8 +24,7 @@ public class Calculator {
     public double B;        // starting Phase
     public double tR;       // time range
     public double tD;       // time step for each calculation
-
-    public static double c = 299792458;                                 // speed of light
+    
     public static double pi = 3.1415926535897932384626433832795;        // pi
     public static double eps = 0.000000000000000000000001;              // error tolerance
     public static double e = 2.7182818284590452353602874713527;         // Euler's number
@@ -62,13 +61,13 @@ public class Calculator {
     // calculates constants before embarking on each step charge calculations
     public void calculateConstants() {
         W0 = Math.pow(L * C, -0.5);
-        R = W0 * L + Math.pow(W0 * c, -1) + RR;
+        R = W0 * L + Math.pow(W0 * C * 2 * pi, -1) + RR;
         k = R / (2 * L);
         W = sqrt(Math.pow(W0, 2) - Math.pow(k, 2));
         Rc = 2 * sqrt(L / C);
         T = 2 * pi / W;
-        a0 = c * T;
         q0 = C * Vs;
+        a0 = q0;
     }
 
     // calculates charge & all required to find it

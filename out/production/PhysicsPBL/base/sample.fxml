@@ -9,23 +9,29 @@
       <TextField fx:id="VoltageTextField" layoutX="113.0" layoutY="83.0" />
       <TextField fx:id="CapacityTextField" layoutX="113.0" layoutY="118.0" />
       <TextField fx:id="InductanceTextField" layoutX="113.0" layoutY="153.0" />
-      <Label layoutX="14.0" layoutY="86.0" prefHeight="17.0" prefWidth="90.0" text="Voltage:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="14.0" layoutY="119.0" prefHeight="17.0" prefWidth="90.0" text="Capacity:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="14.0" layoutY="154.0" prefHeight="17.0" prefWidth="90.0" text="Inductance:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="14.0" layoutY="226.0" prefHeight="17.0" prefWidth="90.0" text="Starting phase:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
       <TextField fx:id="StartingPhaseTextField" layoutX="113.0" layoutY="223.0" />
+      <TextField fx:id="TimeDeltaTextField" layoutX="113.0" layoutY="293.0" />
+      <TextField fx:id="ResistorTextField" layoutX="113.0" layoutY="188.0" />
+      <TextField fx:id="TimeRangeTextField" layoutX="113.0" layoutY="258.0" />
+
+      <Button fx:id="ResetAllButton" layoutX="7.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleResetAllButton" prefHeight="25.0" prefWidth="90.0" text="Reset All">
+           <font>
+               <Font name="System Bold" size="12.0" />
+           </font>
+      </Button>
+
+      <Button fx:id="CalculateChargeButton" layoutX="122.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleCalculateChargeButton" prefHeight="25.0" prefWidth="130.0" text="Calculate charge (q)">
+           <font>
+               <Font name="System Bold" size="12.0" />
+           </font>
+      </Button>
+
+      <Button fx:id="ShowChartButton" layoutX="122.0" layoutY="373.0" mnemonicParsing="false" onAction="#handleShowChartButtonOnAction" prefHeight="25.0" prefWidth="130.0" text="Show chart">
+          <font>
+              <Font name="System Bold" size="12.0" />
+          </font>
+      </Button>
+
       <MenuButton fx:id="VoltageMenuButton" layoutX="279.0" layoutY="83.0" mnemonicParsing="false" onAction="#handleVoltageMenuButton" prefHeight="25.0" prefWidth="98.0" text="Volt">
         <items>
             <MenuItem fx:id="VoltageNanoVoltUnitMenuItem" mnemonicParsing="false" onAction="#handleVoltageNanoVoltUnitMenuItem" text="nanoVolt" />
@@ -37,6 +43,7 @@
             <MenuItem fx:id="VoltageGigaVoltUnitMenuItem" mnemonicParsing="false" onAction="#handleVoltageGigaVoltUnitMenuItem" text="GigaVolt" />
         </items>
       </MenuButton>
+
       <MenuButton fx:id="CapacityMenuButton" layoutX="279.0" layoutY="118.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Farad">
         <items>
             <MenuItem fx:id="CapacityNanoFaradUnitMenuItem" mnemonicParsing="false" onAction="#handleCapacityNanoFaradUnitMenuItem" text="nanoFarad" />
@@ -48,6 +55,7 @@
             <MenuItem fx:id="CapacityGigaFaradUnitMenuItem" mnemonicParsing="false" onAction="#handleCapacityGigaFaradUnitMenuItem" text="GigaFarad" />
         </items>
       </MenuButton>
+
       <MenuButton fx:id="InductanceMenuButton" layoutX="279.0" layoutY="153.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Henry">
         <items>
             <MenuItem fx:id="InductanceNanoHenryUnitMenuItem" mnemonicParsing="false" onAction="#handleInductanceNanoHenryUnitMenuItem" text="nanoHenry" />
@@ -59,29 +67,50 @@
             <MenuItem fx:id="InductanceGigaHenryUnitMenuItem" mnemonicParsing="false" onAction="#handleInductanceGigaHenryUnitMenuItem" text="GigaHenry" />
         </items>
       </MenuButton>
+
       <MenuButton fx:id="StartingPhaseMenuButton" layoutX="279.0" layoutY="223.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Radian">
         <items>
           <MenuItem fx:id="StartingPhaseRadianUnitMenuItem" mnemonicParsing="false" onAction="#handleStartingPhaseRadianUnitMenuItem" text="Radian" />
           <MenuItem fx:id="StartingPhaseDegreesUnitMenuItem" mnemonicParsing="false" onAction="#handleStartingPhaseDegreesUnitMenuItem" text="Degrees" />
         </items>
       </MenuButton>
+
       <MenuButton fx:id="TimeRangeMenuButton" layoutX="279.0" layoutY="258.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="seconds">
         <items>
           <MenuItem fx:id="TimeRangeSecondUnitMenuItem" mnemonicParsing="false" onAction="#handleTimeRangeSecondUnitMenuItem" text="seconds" />
           <MenuItem fx:id="TimeRangeMilliSecondUnitMenuItem" mnemonicParsing="false" onAction="#handleTimeRangeMilliSecondUnitMenuItem" text="milliseconds" />
         </items>
       </MenuButton>
-      <TextField fx:id="TimeDeltaTextField" layoutX="113.0" layoutY="293.0" />
-      <Button fx:id="CalculateChargeButton" layoutX="122.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleCalculateChargeButton" prefHeight="25.0" prefWidth="130.0" text="Calculate charge (q)">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
+
+
       <MenuButton fx:id="TimeDeltaMenuButton" layoutX="279.0" layoutY="293.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="seconds">
         <items>
           <MenuItem fx:id="TimeDeltaRangeSecondUnitMenuItem" mnemonicParsing="false" onAction="#handleTimeDeltaRangeSecondUnitMenuItem" text="seconds" />
           <MenuItem fx:id="TimeDeltaRangeMilliSecondUnitMenuItem" mnemonicParsing="false" onAction="#handleTimeDeltaRangeMilliSecondUnitMenuItem" text="milliseconds" />
         </items>
       </MenuButton>
+
+      <MenuButton fx:id="ResistorMenuButton" layoutX="279.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Ohm">
+          <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleResistanceNanoOhmUnitMenuItem" text="nanoOhm" />
+              <MenuItem mnemonicParsing="false" onAction="#handleResistanceMicroOhmUnitMenuItem" text="microOhm" />
+              <MenuItem mnemonicParsing="false" onAction="#handleResistanceMilliOhmUnitMenuItem" text="milliOhm" />
+              <MenuItem mnemonicParsing="false" onAction="#handleResistanceOhmUnitMenuItem" text="Ohm" />
+              <MenuItem mnemonicParsing="false" onAction="#handleResistanceKiloOhmUnitMenuItem" text="kiloOhm" />
+              <MenuItem mnemonicParsing="false" onAction="#handleResistanceMegaOhmUnitMenuItem" text="MegaOhm" />
+              <MenuItem mnemonicParsing="false" onAction="#handleResistanceGigaOhmUnitMenuItem" text="GigaOhm" />
+          </items>
+      </MenuButton>
+
+      <Label fx:id="InitialVoltageLabel" layoutX="1032.0" layoutY="87.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
+      <Label fx:id="CapacityLabel" layoutX="1032.0" layoutY="145.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
+      <Label fx:id="InductanceLabel" layoutX="1032.0" layoutY="175.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
+      <Label fx:id="ResistorResistanceLabel" layoutX="1032.0" layoutY="205.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
+      <Label fx:id="TotalResistanceLabel" layoutX="1032.0" layoutY="115.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
+      <Label fx:id="OscillationPeriodLabel" layoutX="1032.0" layoutY="235.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
+      <Label fx:id="OscillationFrequencyLabel" layoutX="1032.0" layoutY="265.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
+      <Label fx:id="AttenuationCoefficientLabel" layoutX="1032.0" layoutY="295.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
+
       <Label layoutX="14.0" layoutY="262.0" prefHeight="17.0" prefWidth="90.0" text="Time range:">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -91,39 +120,30 @@
             <Font name="System Bold" size="12.0" />
          </font></Label>
 
-      <Button fx:id="ShowChartButton" layoutX="122.0" layoutY="373.0" mnemonicParsing="false" onAction="#handleShowChartButtonOnAction" prefHeight="25.0" prefWidth="130.0" text="Show chart">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
+
       <Label layoutX="14.0" layoutY="190.0" prefHeight="17.0" prefWidth="90.0" text="Resistor:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <TextField fx:id="ResistorTextField" layoutX="113.0" layoutY="188.0" />
-      <MenuButton fx:id="ResistorMenuButton" layoutX="279.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Ohm">
-        <items>
-          <MenuItem mnemonicParsing="false" onAction="#handleResistanceNanoOhmUnitMenuItem" text="nanoOhm" />
-          <MenuItem mnemonicParsing="false" onAction="#handleResistanceMicroOhmUnitMenuItem" text="microOhm" />
-            <MenuItem mnemonicParsing="false" onAction="#handleResistanceMilliOhmUnitMenuItem" text="milliOhm" />
-            <MenuItem mnemonicParsing="false" onAction="#handleResistanceOhmUnitMenuItem" text="Ohm" />
-            <MenuItem mnemonicParsing="false" onAction="#handleResistanceKiloOhmUnitMenuItem" text="kiloOhm" />
-            <MenuItem mnemonicParsing="false" onAction="#handleResistanceMegaOhmUnitMenuItem" text="MegaOhm" />
-            <MenuItem mnemonicParsing="false" onAction="#handleResistanceGigaOhmUnitMenuItem" text="GigaOhm" />
-        </items>
-      </MenuButton>
-      <Label fx:id="InitialVoltageLabel" layoutX="1032.0" layoutY="87.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
-      <Label fx:id="CapacityLabel" layoutX="1032.0" layoutY="145.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
-      <Label fx:id="InductanceLabel" layoutX="1032.0" layoutY="175.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
-      <Label fx:id="ResistorResistanceLabel" layoutX="1032.0" layoutY="205.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
-      <Label fx:id="TotalResistanceLabel" layoutX="1032.0" layoutY="115.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
-      <Label fx:id="OscillationPeriodLabel" layoutX="1032.0" layoutY="235.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
-      <Label fx:id="OscillationFrequencyLabel" layoutX="1032.0" layoutY="265.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
-      <Label fx:id="AttenuationCoefficientLabel" layoutX="1032.0" layoutY="295.0" prefHeight="17.0" prefWidth="500.0" text="Label" />
-      <TextField fx:id="TimeRangeTextField" layoutX="113.0" layoutY="258.0" />
-      <Button fx:id="ResetAllButton" layoutX="7.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleResetAllButton" prefHeight="25.0" prefWidth="90.0" text="Reset All">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
+
+
+       <Label layoutX="14.0" layoutY="86.0" prefHeight="17.0" prefWidth="90.0" text="Voltage:">
+           <font>
+               <Font name="System Bold" size="12.0" />
+           </font></Label>
+       <Label layoutX="14.0" layoutY="119.0" prefHeight="17.0" prefWidth="90.0" text="Capacity:">
+           <font>
+               <Font name="System Bold" size="12.0" />
+           </font></Label>
+       <Label layoutX="14.0" layoutY="154.0" prefHeight="17.0" prefWidth="90.0" text="Inductance:">
+           <font>
+               <Font name="System Bold" size="12.0" />
+           </font></Label>
+       <Label layoutX="14.0" layoutY="226.0" prefHeight="17.0" prefWidth="90.0" text="Starting phase:">
+           <font>
+               <Font name="System Bold" size="12.0" />
+           </font></Label>
+
       <Label fx:id="InitialVoltageTextLabel" layoutX="910.0" layoutY="85.0" text="Initial Voltage: ">
          <font>
             <Font name="System Bold" size="12.0" />

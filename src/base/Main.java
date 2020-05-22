@@ -20,21 +20,23 @@ import javafx.util.Callback;
 import java.util.Arrays;
 
 public class Main extends Application {
+
     static Pane root;
-    public static LineChart<Number, Number> lineChart;
-    public static TableView<String[]> table;
+    static LineChart<Number, Number> lineChart;
+    static TableView<String[]> table;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         root.getStylesheets().add("styles.css");
+
         ScrollPane sp = new ScrollPane();
         sp.setContent(root);
+
         primaryStage.setTitle("Free Electromagnetic Oscillations");
         primaryStage.setScene(new Scene(sp, 1820, 980));
         primaryStage.show();
     }
-
 
     public static void main(String[] args) {
         launch(args);
@@ -78,22 +80,16 @@ public class Main extends Application {
             TableColumn tc = new TableColumn(data[0][i]);
             final int colNo = i;
 
-            tc.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<String[], String>, ObservableValue<String>>() {
-                @Override
-                public ObservableValue<String> call(TableColumn.CellDataFeatures<String[], String> p) {
-                    return new SimpleStringProperty((p.getValue()[colNo]));
-                }
-            });
+            tc.setCellValueFactory((Callback<TableColumn.CellDataFeatures<String[], String>, ObservableValue<String>>)
+                    p -> new SimpleStringProperty((p.getValue()[colNo])));
+
             tc.setPrefWidth(90);
             tc.setSortable(false);
 
-            if(i == 0){
-                //tc.setStyle("-fx-font-weight: bold;  -fx-alignment: center;");
+            if(i == 0)
                 tc.getStyleClass().add("fx-font-column1");
-            } else {
-                //tc.setStyle("-fx-alignment: center;");
+            else
                 tc.getStyleClass().add("fx-font-columns");
-            }
 
             table.getColumns().add(tc);
         }
@@ -149,13 +145,13 @@ public class Main extends Application {
     // makes possible to zoom the chart
     public static void makeChartZoomable(LineChart<Number, Number> lineChart){
         final double SCALE_DELTA = 1.1;
+
         lineChart.setOnScroll(new EventHandler<ScrollEvent>() {
             public void handle(ScrollEvent event) {
                 event.consume();
 
-                if (event.getDeltaY() == 0) {
+                if (event.getDeltaY() == 0)
                     return;
-                }
 
                 double scaleFactor = (event.getDeltaY() > 0) ? SCALE_DELTA : 1 / SCALE_DELTA;
 
