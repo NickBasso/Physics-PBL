@@ -1,1 +1,0 @@
-java --module-path D:\!Works\Java\Tools\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml -jar PhysicsPBL.jar

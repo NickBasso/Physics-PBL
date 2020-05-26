@@ -1,0 +1,34 @@
+::[Bat To Exe Converter]
+::
+::YAwzoRdxOk+EWAjk
+::fBw5plQjdCuDJBiz+1A7Oyd+TRKDAFuoCb8Z6/zo09Wto1scZPAwcorYzqexB+kHwlDmSaYlz2lTm9g8LjdkbQCoUiY5qGlHpViJOMCToDO3HlDfsnQ/CGZ9i2/RmCI0bux7mdEG1i6B0xrpoKwT3naxV6oBdQ==
+::YAwzuBVtJxjWCl3EqQJgSA==
+::ZR4luwNxJguZRRnk
+::Yhs/ulQjdF+5
+::cxAkpRVqdFKZSDk=
+::cBs/ulQjdF+5
+::ZR41oxFsdFKZSDk=
+::eBoioBt6dFKZSDk=
+::cRo6pxp7LAbNWATEpCI=
+::egkzugNsPRvcWATEpCI=
+::dAsiuh18IRvcCxnZtBJQ
+::cRYluBh/LU+EWAnk
+::YxY4rhs+aU+JeA==
+::cxY6rQJ7JhzQF1fEqQJQ
+::ZQ05rAF9IBncCkqN+0xwdVs0
+::ZQ05rAF9IAHYFVzEqQJQ
+::eg0/rx1wNQPfEVWB+kM9LVsJDGQ=
+::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
+::cRolqwZ3JBvQF1fEqQJQ
+::dhA7uBVwLU+EWDk=
+::YQ03rBFzNR3SWATElA==
+::dhAmsQZ3MwfNWATElA==
+::ZQ0/vhVqMQ3MEVWAtB9wSA==
+::Zg8zqx1/OA3MEVWAtB9wSA==
+::dhA7pRFwIByZRRnk
+::Zh4grVQjdCuDJBiz+1A7Oyd+TRKDAFuoCb8Z6/zo09Wto1scZPAwcorYzqexB+kHwlDmSaYlz2lTm9g8LjdkcQe/Ug4mvWdEt2eRJPusuxbyQ0ua1mkcJ0BZx2zDjyI3bNJ8k8wNwG675Eif
+::YB416Ek+ZG8=
+::
+::
+::978f952a14a936cc963da21a135fa983
+java --module-path D:\!Works\Java\Tools\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml -jar Source.jar
