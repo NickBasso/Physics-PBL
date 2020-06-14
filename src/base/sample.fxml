@@ -20,13 +20,13 @@
            </font>
       </Button>
 
-      <Button fx:id="CalculateChargeButton" layoutX="122.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleCalculateChargeButton" prefHeight="25.0" prefWidth="130.0" text="Calculate charge (q)">
+      <Button fx:id="CalculateChargeButton" layoutX="122.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleCalculateChargeButton" prefHeight="25.0" prefWidth="130.0" text="Calculate charge (q)">
            <font>
                <Font name="System Bold" size="12.0" />
            </font>
       </Button>
 
-      <Button fx:id="ShowChartButton" layoutX="122.0" layoutY="373.0" mnemonicParsing="false" onAction="#handleShowChartButtonOnAction" prefHeight="25.0" prefWidth="130.0" text="Show chart">
+      <Button fx:id="ShowChartButton" layoutX="122.0" layoutY="386.0" mnemonicParsing="false" onAction="#handleShowChartButtonOnAction" prefHeight="25.0" prefWidth="130.0" text="Show chart">
           <font>
               <Font name="System Bold" size="12.0" />
           </font>
@@ -175,6 +175,12 @@
       <Label fx:id="AttenuationCoefficientTextLabel" layoutX="910.0" layoutY="295.0" text="λ: ">
          <font>
             <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <RadioButton fx:id="FreeOscillationsRadioButton" layoutX="122.0" layoutY="51.0" mnemonicParsing="false" onAction="#handleFreeOscillationsRadioButton" text="Free" />
+      <RadioButton fx:id="DampedOscillationsRadioButton" layoutX="176.0" layoutY="51.0" mnemonicParsing="false" onAction="#handleDampedOscillationsRadioButton" text="Damped" />
+      <Label layoutX="130.0" layoutY="21.0" prefHeight="25.0" prefWidth="114.0" text="Type of oscillations:">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
          </font></Label>
    </children>
 </Pane>

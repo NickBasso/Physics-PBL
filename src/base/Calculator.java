@@ -59,9 +59,14 @@ public class Calculator {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // calculates constants before embarking on each step charge calculations
-    public void calculateConstants() {
+    public void calculateConstants(boolean isFreeOscillationsChosen) {
         W0 = Math.pow(L * C, -0.5);
-        R = W0 * L + Math.pow(W0 * C * 2 * pi, -1) + RR;
+
+        if(isFreeOscillationsChosen == false)
+            R = W0 * L + Math.pow(W0 * C * 2 * pi, -1) + RR;
+        else
+            R = 0;
+
         k = R / (2 * L);
         W = sqrt(Math.pow(W0, 2) - Math.pow(k, 2));
         Rc = 2 * sqrt(L / C);

@@ -20,6 +20,9 @@ public class Controller implements Initializable {
     public Button CalculateChargeButton;
     public Button ShowChartButton;
 
+    public RadioButton FreeOscillationsRadioButton;
+    public RadioButton DampedOscillationsRadioButton;
+
     public TextField VoltageTextField;
     public TextField CapacityTextField;
     public TextField InductanceTextField;
@@ -96,6 +99,13 @@ public class Controller implements Initializable {
         OscillationPeriodLabel.setVisible(false);
         OscillationFrequencyLabel.setVisible(false);
         AttenuationCoefficientLabel.setVisible(false);
+
+        DampedOscillationsRadioButton.setSelected(true);
+        ShowChartButton.setDisable(false);
+        CalculateChargeButton.setDisable(false);
+        FreeOscillationsRadioButton.setSelected(false);
+        FreeOscillationsRadioButton.setDisable(false);
+        DampedOscillationsRadioButton.setDisable(false);
     }
 
                              // ---> variable initializer <---
@@ -105,13 +115,28 @@ public class Controller implements Initializable {
         initializeData();
         Main.removeTable();
         Main.removeChart();
-        ShowChartButton.setDisable(false);
-        CalculateChargeButton.setDisable(false);
+    }
+
+
+                             // ---> type of oscillations handler <---
+
+    public void handleFreeOscillationsRadioButton(){
+        DampedOscillationsRadioButton.setSelected(false);
+        ResistorTextField.setDisable(true);
+        ResistorMenuButton.setDisable(true);
+    }
+
+    public void handleDampedOscillationsRadioButton(){
+        FreeOscillationsRadioButton.setSelected(false);
+        ResistorTextField.setDisable(false);
+        ResistorMenuButton.setDisable(false);
     }
 
                              // ---> Calculate charge handlers <---
     public void handleCalculateChargeButton(){
         CalculateChargeButton.setDisable(true);
+        FreeOscillationsRadioButton.setDisable(true);
+        DampedOscillationsRadioButton.setDisable(true);
 
         double V = convertVoltageToSI();
         double C = convertCapacityToSI();
@@ -122,7 +147,7 @@ public class Controller implements Initializable {
         double timeDelta = convertTimeDeltaToSI();
 
         calculator = new Calculator(V, C, L, R, time, timeDelta, startingPhase);
-        calculator.calculateConstants();
+        calculator.calculateConstants(FreeOscillationsRadioButton.isSelected());
         calculator.calculateCharge();
 
         Main.displayConstants(  InitialVoltageLabel, V,
